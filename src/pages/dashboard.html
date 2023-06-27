@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@casper v1.18 DASHBOARD</title>
+    <link rel="stylesheet" href="../index.css"> <!-- CSS -->
+    <script src="./dashboard.js" defer></script>
+</head>
+<body>
+    <div class="loader" id="pre_load" style="display: none;">
+        <div class="load_bar"></div>
+            <p class="load_title">Loading data...</p>
+        <div class="load_data_bar">
+            <div class="load_line"></div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <header class="header pos_relative">
+            <div class="left_side_header">
+                <p class="agent_name">$NAME</p>
+                <button class="new_load btn">NEW LOAD</button>
+            </div>
+            <p class="page_title_header">DASHBOARD</p>
+
+            <div class="margin" style="display: flex;">
+                <p class="">DB:<span class="margin_color" style="margin-right: 15px;">$0</span></p>
+                <!-- <p>SCAM:<span class="scam_color" style="margin-right: 15px;">$0</span></p> -->
+                <p class="" id="pay">PAY:<span class="pay_color">$0</span></p>
+            </div>
+        </header>
+        <main class="load_list">
+        </main>
+    </div>
+
+    <footer class="footer">@Casper</footer>
+</body>
+</html>

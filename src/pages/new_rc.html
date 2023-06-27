@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@casper v1.18 New ratecon</title>
+    <link rel="stylesheet" href="../index.css"> <!-- CSS -->
+    <script src="./new_rc.js" defer></script>
+</head>
+<body>
+    <div class="loader" id="pre_load" style="display: none;">
+        <div class="load_bar"></div>
+            <p class="load_title">Loading data...</p>
+        <div class="load_data_bar">
+            <div class="load_line"></div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <header class="header pos_relative">
+            <div class="left_side_header">
+                <p class="agent_name">$NAME</p>
+            </div>
+            <p class="page_title_header">NEW Rate con</p>
+        </header>
+        <main class="new_rc">
+            <div style="display: flex; flex-direction: column;">
+                <div style="display: flex; flex-direction: row;">
+                    <select name="type_of_rc" id="type_of_rc" class="input_area"></select>
+                    <input type="checkbox" class="checkbox" name="checkbox_of_scam" id="checkbox_of_scam" value="scam">
+                    <label for="checkbox_of_scam" class="checkbox_lable">SCAM</label>
+                </div>
+                <textarea class="broker_name_ textarea_input" placeholder="Broker companey data"></textarea>
+                <div style="display: flex; flex-direction: row;">
+                    <input type="text" placeholder="broker load number" class="input_area load_num" style="margin-right: 10px;">
+                </div>
+            </div>
+            <div class="data_pick_and_del">
+                <div class="info_box">
+                    <p class="block_title">pickup data</p>
+                    <div class="date_and_time">
+                        <input type="text" placeholder="pickup city and zipcod" class="input_area pu_city" style="margin-right: 10px;">
+                        <input type="text" placeholder="shipper" class="input_area pickup_wh" style="margin-right: 10px;"></br>
+                        <input type="date" class="input_area pu_date" style="width: 140px; margin-right: 10px;">
+                        <input type="time" class="input_area pu_time" style="width: 100px; margin-right: 10px;">
+                        <input type="time" class="input_area pu_last_time" style="width: 100px;">
+                    </div>
+                    <div style="display: flex; flex-direction: column;">
+                        <input type="text" class="input_area pu_adress" placeholder="Adress">
+                        <textarea class="pickup_notes textarea_input" placeholder="Notes"></textarea>
+                    </div>
+                </div>
+                <div class="info_box">
+                    <p class="block_title">delivery data</p>
+                    <div class="date_and_time">
+                        <input type="text" placeholder="delivery city and zipcod" class="input_area del_city" style="margin-right: 10px;">
+                        <input type="text" placeholder="reciver" class="input_area del_wh" style="margin-right: 10px;"></br>
+                        <input type="date" class="input_area del_date" style="width: 140px; margin-right: 10px;">
+                        <input type="time" class="input_area del_time" style="width: 100px; margin-right: 10px;">
+                        <input type="time" class="input_area del_last_time" style="width: 100px;">
+                    </div>
+                    <div style="display: flex; flex-direction: column;">
+                        <input type="text" class="input_area del_adress" placeholder="Adress">
+                        <textarea class="del_notes textarea_input" placeholder="Notes"></textarea>
+                    </div>
+                </div>
+            </div>
+            <input type="text" placeholder="equipment" class="input_area eq" style="margin-right: 10px;"></br>
+            <div class="rates date_and_time">
+                <input type="text" placeholder="Weight" class="input_area weight" style="margin-right: 10px;">
+                <input type="text" placeholder="broker rate" class="input_area b_rate" style="margin-right: 10px;">
+                <input type="text" placeholder="carrier rate" class="input_area c_rate" style="margin-right: 10px;">
+            </div>
+            <button class="create_rc btn" download>Create rc</button>
+            <button class="btn" id="back_to_dashboard">Back to dashboard</button>
+        </main>
+    </div>
+
+    <footer class="footer">@Casper</footer>
+</body>
+</html>

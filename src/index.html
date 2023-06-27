@@ -2,11 +2,31 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Hello World!</title>
-    <link rel="stylesheet" href="index.css" />
+    <title>@Casper v1.18</title>
+    <link rel="stylesheet" href="index.css" /> <!-- Styles -->
+    <script src="render.js" defer></script> <!-- JS -->
   </head>
   <body>
-    <h1>💖 Hello World!</h1>
-    <p>Welcome to your Electron application.</p>
+    <div class="loader" id="pre_load">
+      <div class="load_bar"></div>
+      <p class="load_title">Loading data...</p>
+      <div class="load_data_bar">
+        <div class="load_line"></div>
+      </div>
+    </div>
+    <div class="content">
+      <h1 class="page_title">LogIn</h1>
+      <div class="form align_center">
+        <p class="error_out"></p>
+        <input type="text" placeholder="Agent name" class="text_input input_area login_input">
+        <input type="password" placeholder="Password" class="pass_input input_area">
+        <div class="btns_form">
+          <button class="login_btn btn">login</button>
+          <a href="./pages/registration.html" class="registration fast_link">Singup</a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">@Casper</footer>
   </body>
 </html>
