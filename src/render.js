@@ -1,1 +1,36 @@
-const simpleGit=require("simple-git"),fs=require("fs"),error_message_out=document.querySelector(".error_out"),repositoryUrl="https://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@github.com/AramArutyunyan/StatusTest.git",destinationPath="./src/local_db";_Welcome();const login_btn=document.querySelector(".login_btn");function _Welcome(){loader(!0),fs.rmdir(destinationPath,{recursive:!0},(e=>{e?console.error("Ошибка при удалении папки:",e):console.log("Папка удалена:",destinationPath)})),simpleGit().clone(repositoryUrl,destinationPath,((e,o)=>{e?console.error("Git clone failed:",e):console.log("Git clone successful:",o)})),setTimeout(loader(!1),2e3)}function sava_to_localHost(e,o,t){localStorage.setItem("login",e),localStorage.setItem("office_id",o),localStorage.setItem("owner",t)}function clear_input(e){document.querySelector(e).value=""}function loader(e){const o=document.querySelector(".loader");o.style.display=1==e?"flex":"none"}login_btn.addEventListener("click",(()=>{const e=document.querySelector(".login_input").value,o=document.querySelector(".pass_input").value;fetch(`./local_db/user_${e}.json`).then((e=>e.json())).then((t=>{t.login==e&&t.pass==o?(0==t.owner?window.location.href="./pages/dashboard.html":window.location.href="./pages/owner_dashboard.html",sava_to_localHost(e,t.office_id,t.owner),clear_input(".login_input"),clear_input(".pass_input")):(error_message_out.innerHTML="Wrong login or pass! Try again!",clear_input(".login_input"),clear_input(".pass_input"))}))}));
+// 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
+
+const simpleGit = require("simple-git");
+const fs = require('fs');
+const repositoryUrl = "https://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@github.com/AramArutyunyan/StatusTest.git";
+const destinationPath = "./src/local_db";
+const loader_ = document.querySelector('.loader');
+const loader = require('./pages/components/loader');
+
+__Welcome();
+
+function __Welcome(){
+    loader(loader_, true);
+    fs.rmdir(destinationPath, { recursive: !0 }, (e) => {
+        e ? console.error("Ошибка при удалении папки:", e) : console.log("Папка удалена:", destinationPath);
+    });
+    simpleGit().clone(repositoryUrl, destinationPath, (e, o) => {
+        e ? __Welcome() : loader(loader_, false);
+    });
+}
+
+document.querySelector('.login_btn').addEventListener('click', () => {
+    let userLogin = document.querySelector('.login_input').value;
+    let userPass = document.querySelector('.pass_input').value;
+    fetch(`./local_db/user_${userLogin}.json`)
+            .then((data) => data.json())
+            .then((data) => {
+                if(userLogin == data.login && userPass == data.pass){
+                    localStorage.setItem('login', userLogin);
+                    localStorage.setItem('owner', data.owner);
+                    localStorage.setItem('office', data.office_id);
+
+                    data.owner == true ? window.location.href = './pages/owner_dashboard.html' : window.location.href = './pages/dashboard.html'; 
+                }
+            });
+});
