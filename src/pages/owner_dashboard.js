@@ -7,9 +7,11 @@ var user_data = {}
 const margin_out = document.querySelector('.margin_color');
 const loads_out = document.querySelector('.load_list');
 const pay_out = document.querySelector('.pay_color');
+const agents_out = document.querySelector('.agents_list');
 // Components
 const loads_render = require('./components/loads_render');
 const create_json = require('./components/create_json');
+const load_my_agents = require('./components/load_my_agents');
 
 __Welcome();
 
@@ -20,6 +22,7 @@ function __Welcome(){
                 user_data = data;
                 document.querySelector('.agent_name').innerHTML = `$${user_data.name}`;
                 loads_render(user_data, margin_out, pay_out, loads_out);
+                load_my_agents(user_data.office_id, agents_out, login);
             })   
 }
 

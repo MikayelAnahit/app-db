@@ -1,8 +1,8 @@
-// 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
+// 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
 
 const simpleGit = require("simple-git");
 const fs = require('fs');
-const repositoryUrl = "https://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@github.com/AramArutyunyan/StatusTest.git";
+const repositoryUrl = "https://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@github.com/AramArutyunyan/StatusTest.git";
 const destinationPath = "./src/local_db";
 const loader_ = document.querySelector('.loader');
 const loader = require('./pages/components/loader');
