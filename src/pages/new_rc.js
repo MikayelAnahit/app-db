@@ -1,5 +1,6 @@
 const fs = require('fs');
 const create_json = require('./components/create_json');
+const create_pdf = require('./components/create_pdf');
 
 const rc_pdf_exempls = document.getElementById('type_of_rc');
 
@@ -51,10 +52,10 @@ document.querySelector('.create_rc').addEventListener('click', () => {
     const del_last_time = document.querySelector('.del_last_time').value;
     const del_adress = document.querySelector('.del_adress').value;
     const del_notes = document.querySelector('.del_notes').value;
-    const our_load_num = 1001
+    const our_load_num = `101${Math.floor(Math.random() * 99999) - 1000}`
     const create_rc_data = {
         "status": "status",
-        "type": rc_pdf_exempls,
+        "type": rc_pdf_exempls.value,
         "broker_name": broker_data,
         "load#": [
           load_num,
@@ -71,7 +72,7 @@ document.querySelector('.create_rc').addEventListener('click', () => {
           `${pu_date} - ${pu_time} - ${pu_last_time}`,
           `${del_date} - ${del_time} - ${del_last_time}`
         ],
-        "rate": [broker_rate, carrier_rate],
+        "rate": [+broker_rate, +carrier_rate],
         "weight": weight,
         "w_s": [
           shipper,
@@ -83,13 +84,14 @@ document.querySelector('.create_rc').addEventListener('click', () => {
           pickup_notes,
           del_notes
         ],
-        "scam": true,
+        "scam": document.getElementById('checkbox_of_db').checked,
         "pay": 0,
         "remove_day": "25.07.2023"
       }
 
     user_data.loads.unshift(create_rc_data);
-    console.log(create_json(user_data, login));
+    create_json(user_data, login);
+    create_pdf('rc', 0, user_data);
     setTimeout(() => {
         localStorage.getItem('owner') == "true" ? window.location.href = './owner_dashboard.html' : window.location.href = './dashboard.html';
     }, 1000)

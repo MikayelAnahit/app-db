@@ -10,7 +10,7 @@ function create_json(user_data, login) {
     fs.writeFile(path, data, (e) => {
         e ? console.log(`Error : ${e}`) : console.log(`Created : ${path}`)
     });
-    console.log(push_to_db(login));
+    push_to_db(login);
 }
 
 module.exports = create_json;

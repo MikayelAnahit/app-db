@@ -30,7 +30,7 @@ document.querySelector('.login_btn').addEventListener('click', () => {
                     localStorage.setItem('owner', data.owner);
                     localStorage.setItem('office', data.office_id);
 
-                    data.owner == true ? window.location.href = './pages/owner_dashboard.html' : window.location.href = './pages/dashboard.html'; 
+                    data.owner == true ? window.location.href = './pages/owner_dashboard.html' : window.location.href = './pages/dashboard.html';
                 }
             });
 });

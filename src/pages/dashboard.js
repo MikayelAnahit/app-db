@@ -10,6 +10,7 @@ const pay_out = document.querySelector('.pay_color');
 // Components
 const loads_render = require('./components/loads_render');
 const create_json = require('./components/create_json');
+const create_pdf = require('./components/create_pdf');
 
 __Welcome();
 
@@ -26,7 +27,7 @@ function __Welcome(){
 function change_the_status(_status, id){
     user_data.loads[id].status = _status;
     if (user_data.loads[id].status == 'delivered') {
-        console.log('delivered!')
+        create_pdf('invoice', id, user_data);
     }
     if(user_data.loads[id].scam == false){
         if(user_data.loads[id].status == 'no paid'){
